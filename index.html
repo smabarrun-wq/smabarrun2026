@@ -872,6 +872,75 @@ body {
   color: #64748B;
 }
 
+
+/* ================================
+   HALAMAN PENDAFTARAN DITUTUP
+   ================================ */
+.registration-locked {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(5, 18, 28, 0.97);
+    backdrop-filter: blur(10px);
+}
+.lock-card {
+    width: 100%;
+    max-width: 480px;
+    padding: 38px 28px;
+    text-align: center;
+    border-radius: 26px;
+    background: linear-gradient(145deg, #12344a, #081923);
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 25px 70px rgba(0,0,0,.55);
+}
+.lock-icon {
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 38px;
+    background: rgba(255,107,43,.12);
+    border: 1px solid rgba(255,107,43,.3);
+}
+.lock-title {
+    margin-bottom: 14px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.lock-title span { color: #ff6b2b; }
+.lock-text {
+    margin: 0;
+    color: #d1d5db;
+    font-size: 14px;
+    line-height: 1.8;
+}
+.lock-date {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 11px 18px;
+    border-radius: 12px;
+    background: rgba(255,107,43,.12);
+    border: 1px solid rgba(255,107,43,.25);
+    color: #ffb347;
+    font-size: 13px;
+    font-weight: 800;
+}
+.lock-footer {
+    margin-top: 22px;
+    color: #94a3b8;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
 </style>
 </head>
 <body>
@@ -880,13 +949,36 @@ body {
      Untuk membuka Gelombang 2, ubah REGISTRATION_CLOSED menjadi false
      ═══════════════════════════════════════════════ -->
 <div class="registration-locked" id="registrationLocked">
-<div class="lock-card">
-<div class="lock-icon">🔒</div>
-<div class="lock-title">Pendaftaran Ditutup</div>
-<p class="lock-text">Pendaftaran SMABAR RUN 2026 Gelombang 2 akan segera dibuka.<br/><br/>Silakan pantau informasi resmi panitia.</p>
-<div class="lock-date">📅 SMABAR RUN 2026 · Gelombang 2</div>
-<div class="lock-note">
-      Informasi pembukaan Gelombang 2 akan diumumkan melalui kanal resmi panitia.
+    <div class="lock-card">
+        <div class="lock-icon">🏃</div>
+
+        <div class="lock-title">
+            PENDAFTARAN <span>DITUTUP</span>
+        </div>
+
+        <p class="lock-text">
+            Terima kasih banyak atas antusiasme dan partisipasi
+            seluruh peserta dalam <strong>SMABAR RUN 2026</strong>.
+            <br><br>
+            Pendaftaran <strong>Gelombang 2</strong> telah berakhir
+            dan pendaftaran SMABAR RUN 2026 kini resmi ditutup.
+            <br><br>
+            Kami mengucapkan terima kasih atas kepercayaan,
+            semangat, dan dukungan yang telah diberikan.
+        </p>
+
+        <div class="lock-date">
+            🗓️ 6 SEPTEMBER 2026
+        </div>
+
+        <p class="lock-footer">
+            Sampai jumpa pada 6 September 2026!
+            <br>
+            Mari kita berlari bersama, menjaga semangat,
+            dan menciptakan pengalaman yang tak terlupakan.
+            <br><br>
+            <strong>SMABAR RUN 2026 — See You at the Starting Line! 🧡</strong>
+        </p>
     </div>
 </div>
 </div>
@@ -1178,7 +1270,8 @@ ambilNomorBIB();
 // true  = dikunci / ditutup
 // false = dibuka kembali (Gelombang 2)
 // ═══════════════════════════════════════════════
-const REGISTRATION_CLOSED = false;
+const REGISTRATION_CLOSED = true;
+const PENDAFTARAN_PERMANENTLY_CLOSED = true;
 
 function applyRegistrationLock() {
   const lock = document.getElementById('registrationLocked');
